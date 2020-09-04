@@ -1,38 +1,118 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 80%;
+  color: wheat;
 }
 
-.App-link {
-  color: #61dafb;
+.main-container {
+  padding: 100px 30px;
 }
 
-@keyframes App-logo-spin {
+.main-container h1 {
+  font-size: 7rem;
+  font-weight: 200;
+  opacity: 0;
+  animation-delay: 1s;
+  animation: fadeInUp 2s ease-in-out 0s forwards;
+}
+
+.main-container span {
+  font-size: 2rem;
+  color: cadetblue;
+  font-weight: 900;
+}
+
+.links-container a {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border-radius: 50%;
+  position: relative;
+  background: #cc4a5c;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.links-container a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  border-radius: 50%;
+  background: #cc4a5c;
+  height: 100%;
+}
+
+.links-container a:hover:before {
+  animation: fadeOut 0.7s ease-in-out;
+}
+
+.links-container a:hover {
+  transform: rotate(360deg);
+  background: #debe12;
+  transition: 0.3s all linear;
+}
+
+#linkedin {
+  background-image: url("public/linkedIn.jpg");
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#github {
+  background-image: url("public/github.png");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#stackoverflow {
+  background-image: url("public/stackoverflow.png");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#twitter {
+  background-image: url("public/twitter.png");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    opacity: 0;
+    z-index: 1;
   }
 }
